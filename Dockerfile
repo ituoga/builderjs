@@ -6,7 +6,7 @@ RUN apk add bash
 RUN npm install -g opencollective-postinstall
 RUN echo "#!/bin/bash -x" > /usr/local/bin/hack.sh
 RUN echo "echo wrapper" >> /usr/local/bin/hack.sh
-RUN echo "source /.entrypoint.env" >> /usr/local/bin/hack.sh
+RUN echo "source /.entrypoint.env 2>/dev/null" >> /usr/local/bin/hack.sh
 RUN echo "python --version" >> /usr/local/bin/hack.sh
 RUN echo "exec /bin/bash \"\$@\"" >> /usr/local/bin/hack.sh
 RUN chmod +x /usr/local/bin/hack.sh
@@ -19,5 +19,5 @@ RUN echo "/usr/local/bin/npm2 config set python /usr/bin/pytnon3" >> /usr/local/
 RUN echo "printenv > /.entrypoint.env" >> /usr/local/bin/npm
 RUN echo "/usr/local/bin/npm2 \$@" >> /usr/local/bin/npm
 RUN chmod +x /usr/local/bin/npm
-
+RUN npm i -g laravel-mix
 ENV npm_config_script_shell=/usr/local/bin/hack.sh
