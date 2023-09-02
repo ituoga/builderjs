@@ -21,4 +21,5 @@ RUN echo "/usr/local/bin/npm2 \$@" >> /usr/local/bin/npm
 RUN chmod +x /usr/local/bin/npm
 RUN npm i -g laravel-mix webpack webpack-cli
 RUN npm install -g opencollective
+RUN npm install -g vite
 ENV npm_config_script_shell=/usr/local/bin/hack.sh
