@@ -22,4 +22,5 @@ RUN chmod +x /usr/local/bin/npm
 RUN npm i -g laravel-mix webpack webpack-cli
 RUN npm install -g opencollective
 RUN npm install -g vite
+RUN apk add zip rclone
 ENV npm_config_script_shell=/usr/local/bin/hack.sh
